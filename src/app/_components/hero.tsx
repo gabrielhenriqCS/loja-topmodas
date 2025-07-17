@@ -1,4 +1,5 @@
 import { WhatsappLogoIcon } from "@phosphor-icons/react/dist/ssr" 
+import Image from "next/image";
 
 export function Hero() {
     return (
@@ -18,14 +19,20 @@ export function Hero() {
                             </a>
                        
                         <div className="mt-8">
-                            <p className="text-sm md:text-md mb-4">
-                                <b className="bg-black text-white text-[20px]">Top Modas</b> é uma loja de roupas que oferece uma ampla variedade de produtos para toda a família, incluindo moda masculina, feminina e infantil. Com um compromisso com a qualidade e o estilo, a Top Modas se destaca por suas peças elegantes e confortáveis, atendendo às últimas tendências da moda. Além disso, a loja proporciona uma experiência de compra excepcional, com atendimento personalizado e opções de contato via WhatsApp para facilitar a comunicação com os clientes.
+                            <p className="text-sm md:text-lg mb-4">
+                                Top Modas é uma loja de roupas que oferece uma ampla variedade de produtos para toda a família, incluindo moda masculina, feminina e infantil. Com um compromisso com a qualidade e o estilo, a Top Modas se destaca por suas peças elegantes e confortáveis, atendendo às últimas tendências da moda. Além disso, a loja proporciona uma experiência de compra excepcional, com atendimento personalizado e opções de contato via WhatsApp para facilitar a comunicação com os clientes.
                             </p>
                         </div>
                     </div>
-                    <div>
-                        <h1>Foto do Vestido</h1>
-                    </div>
+                    <div className="relative h-96 lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
+              <Image
+                src="/placeholder.svg"
+                alt="Modelo usando peça da coleção Top Moda e Luxo"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+            </div>
                 </article>
             </div>
         </section>
