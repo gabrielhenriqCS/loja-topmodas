@@ -20,7 +20,7 @@ export function Hero() {
                        
                         <div className="mt-8">
                             <p className="text-sm md:text-lg mb-4">
-                                Top Modas é uma loja de roupas que oferece uma ampla variedade de produtos para toda a família, incluindo moda masculina, feminina e infantil. Com um compromisso com a qualidade e o estilo, a Top Modas se destaca por suas peças elegantes e confortáveis, atendendo às últimas tendências da moda. Além disso, a loja proporciona uma experiência de compra excepcional, com atendimento personalizado e opções de contato via WhatsApp para facilitar a comunicação com os clientes.
+                                Top Modas é uma loja de roupas que oferece uma ampla variedade de produtos para toda a família, incluindo moda masculina, feminina e infantil. Com um compromisso com a qualidade e o estilo, a Top Modas se destaca por suas peças elegantes e confortáveis, atendendo às últimas tendências da moda. 
                             </p>
                         </div>
                     </div>

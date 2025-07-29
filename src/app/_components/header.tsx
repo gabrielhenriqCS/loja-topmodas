@@ -10,10 +10,12 @@ export function Header() {
                     <h1 className="text-2xl font-bold text-gray-900">Top Modas</h1>
                 </div>
                 <nav className="hidden md:flex items-center space-x-8">
-                    <Link href={"#collections"} className="text-black hover:text-gray-700 transition-colors">
+                    <Link href={"#collections"} className="text-black font-bold text-[18px] hover:text-gray-800 hover:bg-pink-400 hover:px-5 hover:py-2 duration-150 transition-colors hover:rounded-md">
                         Coleções
                     </Link>
-                    <Link href={"#contact"} className="text-black hover:text-gray-700 transition-colors">
+                    <Link href={"#contact"} className="text-black font-bold
+                    text-[18px] hover:text-gray-800 hover:bg-pink-400 hover:px-5 hover:py-2
+                    hover:rounded-md transition-colors">
                         Contatos
                     </Link>
                 </nav>
