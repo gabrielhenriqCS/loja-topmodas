@@ -28,7 +28,7 @@ export function CollectionCard({ title, description, image, badge }: CollectionC
             variant="secondary"
             className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity"
           >
-            <Heart className="h-4 w-4" />
+            <Heart className="h-6 w-6 cursor-pointer" />
           </Button>
         </div>
         <div className="p-6">
@@ -36,7 +36,7 @@ export function CollectionCard({ title, description, image, badge }: CollectionC
           <p className="text-gray-600 mb-4">{description}</p>
           <Button
             variant="outline"
-            className="w-full border-pink-600 text-pink-600 hover:bg-pink-600 hover:text-white bg-transparent cursor-pointer"
+            className="w-full border-pink-600 text-pink-600 hover:bg-pink-600 hover:text-white bg-transparent cursor-pointer text-[15px]"
           >
             Ver Coleção
           </Button>

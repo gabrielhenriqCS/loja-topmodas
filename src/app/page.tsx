@@ -1,3 +1,4 @@
+"use client";
 import { Header } from './_components/header';
 import { Hero } from './_components/hero';
 import { Collections } from './_components/collections';
