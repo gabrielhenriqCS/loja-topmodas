@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { InstagramLogoIcon } from "@phosphor-icons/react/dist/ssr";
@@ -8,8 +9,8 @@ export function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="border-b border-gray-100 bg-white">
-      <div className="container px-5 py-4 flex items-center justify-between">
+    <header className="px-10 py-3 bg-pink-200">
+      <div className="container flex items-center justify-between mx-auto">
         {/* Menu lateral + Título */}
         <div className="relative flex items-center space-x-2">
           <button
@@ -20,36 +21,37 @@ export function Header() {
           >
             <HamburgerMenuIcon className="w-7 h-7 text-black hover:text-white transition-colors duration-200" />
           </button>
-          <h1 className="text-2xl font-bold text-gray-900">Top Modas</h1>
-          <div
-            className={`fixed left-0 h-full bg-gray-200 text-black w-64 transform transition-transform duration-300 ease-in-out z-10 ${
-              isOpen ? "translate-x-0" : "-translate-x-full"
-            }`}
-          >
-            <div className="p-4">
-              <ul>
-                <li className="py-2 text-white hover:bg-gray-700">
-                  <Link href="#">Coleções</Link>
-                </li>
-                <li className="py-2 text-white hover:bg-gray-700">
-                  <Link href="#">Contatos</Link>
-                </li>
-              </ul>
+          <h1 className="text-2xl font-bold text-gray-900">
+            <Link href={"/"}>Top Modas</Link>
+          </h1>
+          {isOpen && (
+            <div className="fixed left-0 top-0 h-full bg-red-200 text-black w-64 transform transition-transform duration-500 ease-in-out z-10">
+              <h1 className="text-[30px] font-bold text-center mt-2 mb-10">Top Modas</h1>
+              <div className="p-4 text-xl flex flex-col align-middle">
+                <ul>
+                  <li className="py-2 cursor-pointer text-black hover:bg-gray-700 hover:text-white hover:rounded-md">
+                    <Link href="#" className="ml-2">Coleções</Link>
+                  </li>
+                  <li className="py-2 cursor-pointer text-black hover:bg-gray-700 hover:text-white hover:rounded-md">
+                    <Link href="/contatos" className="ml-2">Contatos</Link>
+                  </li>
+                </ul>
+              </div>
             </div>
-          </div>
+          )}
         </div>
 
         {/* Menu */}
-        <nav className="hidden md:flex items-center space-x-8">
+        <nav className="md:flex items-center space-x-8">
           <Link
-            href="#collections"
-            className="text-black font-bold text-[18px] hover:text-gray-800 hover:bg-pink-400 hover:px-5 hover:py-2 transition-colors hover:rounded-md"
+            href="#"
+            className="text-black font-bold text-[18px] hover:text-gray-800 hover:bg-pink-400 px-5 py-2 transition-colors rounded-md"
           >
             Coleções
           </Link>
           <Link
-            href="#contact"
-            className="text-black font-bold text-[18px] hover:text-gray-800 hover:bg-pink-400 hover:px-5 hover:py-2 transition-colors hover:rounded-md"
+            href="/contatos"
+            className="text-black font-bold text-[18px] hover:text-gray-800 hover:bg-pink-400 px-5 py-2 transition-colors rounded-md"
           >
             Contatos
           </Link>
@@ -58,9 +60,9 @@ export function Header() {
         {/* Botão Instagram */}
         <Button
           variant="outline"
-          className="border-gray-300 text-gray-700 hover:bg-gray-100 hover:text-white bg-transparent cursor-pointer flex items-center"
+          className="text-gray-700 hover:bg-gray-100 bg-transparent cursor-pointer"
         >
-          <InstagramLogoIcon className="h-4 w-4 mr-2" />
+          <InstagramLogoIcon size={40} />
           Seguir
         </Button>
       </div>
