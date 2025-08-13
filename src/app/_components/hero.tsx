@@ -1,5 +1,6 @@
 import { WhatsappLogoIcon } from "@phosphor-icons/react/dist/ssr" 
 import Image from "next/image";
+import Link from "next/link";
 
 export function Hero() {
     return (
@@ -13,10 +14,10 @@ export function Hero() {
                         <p className="lg:text-lg text-sm mb-4">
                             Moda masculina, feminina, infantil e muito mais!!
                         </p>
-                        <a href="#" className="bg-green-500 text-white px-5 py-2 rounded-md font-semibold flex items-center justify-center w-fit gap-2">
+                        <Link href="https://wa.link/qwls2e" className="bg-green-500 text-white px-5 py-2 rounded-md font-semibold flex items-center justify-center w-fit gap-2">
                             <WhatsappLogoIcon className="w-5 h-5"/>
                                 WhatsApp
-                            </a>
+                            </Link>
                        
                         <div className="mt-8">
                             <p className="text-sm md:text-lg mb-4">

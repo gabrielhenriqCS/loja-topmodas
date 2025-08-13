@@ -45,13 +45,13 @@ export function Header() {
         <nav className="md:flex items-center space-x-8">
           <Link
             href="#"
-            className="text-black font-bold text-[18px] hover:text-gray-800 hover:bg-pink-400 px-5 py-2 transition-colors rounded-md"
+            className="text-black font-bold text-[20px] hover:text-gray-800 hover:bg-pink-400 px-5 py-2 transition-colors rounded-md"
           >
             Coleções
           </Link>
           <Link
             href="/contatos"
-            className="text-black font-bold text-[18px] hover:text-gray-800 hover:bg-pink-400 px-5 py-2 transition-colors rounded-md"
+            className="text-black font-bold text-[20px] hover:text-gray-800 hover:bg-pink-400 px-5 py-2 transition-colors rounded-md"
           >
             Contatos
           </Link>

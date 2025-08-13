@@ -13,7 +13,7 @@ export function Footer() {
           </div>
 
           <div className="space-y-4">
-            <h6 className="text-lg font-bold">Links Rápidos</h6>
+            <h6 className="text-lg font-semibold">Links Rápidos</h6>
             <div className="flex flex-col space-y-2">
               <Link
                 href="#collections"
@@ -37,16 +37,16 @@ export function Footer() {
           </div>
 
           <div className="space-y-4">
-            <h6 className="font-semibold">Funcionamento:</h6>
-            <div className="space-y2 text-gray-400">
+            <h6 className="text-lg font-semibold">Funcionamento:</h6>
+            <div className="space-y-2 text-gray-400">
               <p>Segunda a Sexta: 8:00 às 12:00, 14:30 às 19:00</p>
               <p>Sábado: 8:00 às 19:00</p>
               <p>Domingo: 8:00 às 12:00</p>
             </div>
           </div>
         </div>
-        <div className="text-center text-gray-500 text-sm py-4">
-          &copy; {new Date().getFullYear()} Sua Loja. Todos os direitos
+        <div className="text-center text-gray-500 text-md mt-10">
+          &copy; {new Date().getFullYear()} Top Modas. Todos os direitos
           reservados.
         </div>
       </div>
