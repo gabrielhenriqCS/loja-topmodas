@@ -13,11 +13,6 @@ interface ProductCardProps {
 }
 
 export function ProductCard({ product }: ProductCardProps) {
-  const message = encodeURIComponent(
-    `Olá! Tenho interesse no produto "${product.name}". Pode me informar o preço e a disponibilidade?`
-  );
-  const contactUrl = `${WHATSAPP_URL}?text=${message}`;
-
   return (
     <Card className="group overflow-hidden rounded-xl border-gray-200 bg-white py-0 shadow-sm transition-shadow hover:shadow-lg">
       <div className="relative aspect-[4/5] overflow-hidden bg-gray-100">
@@ -47,7 +42,7 @@ export function ProductCard({ product }: ProductCardProps) {
         </div>
         <p className="text-sm text-gray-500">Consulte preço e disponibilidade</p>
         <Button asChild className="w-full bg-pink-600 text-white hover:bg-pink-700">
-          <a href={contactUrl} target="_blank" rel="noreferrer">
+          <a href={WHATSAPP_URL} target="_blank" rel="noreferrer">
             <MessageCircle className="h-4 w-4" />
             Consultar no WhatsApp
           </a>
