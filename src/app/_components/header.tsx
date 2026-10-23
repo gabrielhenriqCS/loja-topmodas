@@ -9,61 +9,86 @@ export function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="px-10 py-3 bg-pink-200">
-      <div className="container flex items-center justify-between mx-auto">
-        {/* Menu lateral + Título */}
+    <header className="bg-pink-200 px-4 py-3 sm:px-6 lg:px-10">
+      <div className="container mx-auto flex items-center justify-between gap-3">
         <div className="relative flex items-center space-x-2">
           <button
-            aria-label="Abrir menu"
+            aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
+            aria-expanded={isOpen}
+            aria-controls="mobile-navigation"
             type="button"
-            className="bg-transparent cursor-pointer hover:bg-pink-500 rounded-3xl p-2 transition-colors duration-200"
-            onClick={() => setIsOpen(!isOpen)}
+            className="cursor-pointer rounded-3xl bg-transparent p-2 transition-colors duration-200 hover:bg-pink-500"
+            onClick={() => setIsOpen((open) => !open)}
           >
-            <HamburgerMenuIcon className="w-7 h-7 text-black hover:text-white transition-colors duration-200" />
+            <HamburgerMenuIcon className="h-7 w-7 text-black transition-colors duration-200 hover:text-white" />
           </button>
           <h1 className="text-2xl font-bold text-gray-900">
-            <Link href={"/"}>Top Modas</Link>
+            <Link href="/">Top Modas</Link>
           </h1>
+
           {isOpen && (
-            <div className="fixed left-0 top-0 h-full bg-red-200 text-black w-64 transform transition-transform duration-500 ease-in-out z-10">
-              <h1 className="text-[30px] font-bold text-center mt-2 mb-10">Top Modas</h1>
-              <div className="p-4 text-xl flex flex-col align-middle">
+            <div
+              id="mobile-navigation"
+              className="fixed left-0 top-0 z-10 h-full w-64 bg-red-200 text-black shadow-xl"
+            >
+              <div className="flex items-center justify-between px-4 pt-4">
+                <span className="text-2xl font-bold">Top Modas</span>
+                <button
+                  type="button"
+                  aria-label="Fechar menu"
+                  onClick={() => setIsOpen(false)}
+                  className="rounded-md px-3 py-2 text-xl hover:bg-pink-300"
+                >
+                  ×
+                </button>
+              </div>
+              <nav aria-label="Navegação móvel" className="p-4 text-lg">
                 <ul>
-                  <li className="py-2 cursor-pointer text-black hover:bg-gray-700 hover:text-white hover:rounded-md">
-                    <Link href="#" className="ml-2">Coleções</Link>
+                  <li className="rounded-md py-2 hover:bg-pink-300">
+                    <Link href="#collections" className="ml-2 block" onClick={() => setIsOpen(false)}>
+                      Catálogo
+                    </Link>
                   </li>
-                  <li className="py-2 cursor-pointer text-black hover:bg-gray-700 hover:text-white hover:rounded-md">
-                    <Link href="/contatos" className="ml-2">Contatos</Link>
+                  <li className="rounded-md py-2 hover:bg-pink-300">
+                    <Link href="/contatos" className="ml-2 block" onClick={() => setIsOpen(false)}>
+                      Contatos
+                    </Link>
                   </li>
                 </ul>
-              </div>
+              </nav>
             </div>
           )}
         </div>
 
-        {/* Menu */}
-        <nav className="md:flex items-center space-x-8">
+        <nav aria-label="Navegação principal" className="hidden items-center space-x-3 md:flex lg:space-x-6">
           <Link
-            href="#"
-            className="text-black font-bold text-[20px] hover:text-gray-800 hover:bg-pink-400 px-5 py-2 transition-colors rounded-md"
+            href="#collections"
+            className="rounded-md px-3 py-2 text-base font-bold text-black transition-colors hover:bg-pink-400 hover:text-gray-800 lg:px-5 lg:text-lg"
           >
-            Coleções
+            Catálogo
           </Link>
           <Link
             href="/contatos"
-            className="text-black font-bold text-[20px] hover:text-gray-800 hover:bg-pink-400 px-5 py-2 transition-colors rounded-md"
+            className="rounded-md px-3 py-2 text-base font-bold text-black transition-colors hover:bg-pink-400 hover:text-gray-800 lg:px-5 lg:text-lg"
           >
             Contatos
           </Link>
         </nav>
 
-        {/* Botão Instagram */}
         <Button
+          asChild
           variant="outline"
-          className="text-gray-700 hover:bg-gray-100 bg-transparent cursor-pointer"
+          className="bg-transparent text-gray-700 hover:bg-gray-100"
         >
-          <InstagramLogoIcon size={40} />
-          Seguir
+          <a
+            href="https://www.instagram.com/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Abrir Instagram"
+          >
+            <InstagramLogoIcon size={24} />
+            <span className="hidden sm:inline">Instagram</span>
+          </a>
         </Button>
       </div>
     </header>
