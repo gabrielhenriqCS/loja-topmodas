@@ -1,9 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import { InstagramLogo } from "@phosphor-icons/react/dist/ssr";
-import { MapPin, Phone, Clock, CreditCard, ShieldCheck } from "lucide-react";
+import { MapPin, Phone, Clock, CreditCard, ShieldCheck, User } from "lucide-react";
 import GoogleMapFrame from "@/components/GoogleMapFrame";
-import { UserIcon } from "@phosphor-icons/react";
 
 export function Footer() {
   return (
@@ -16,7 +15,7 @@ export function Footer() {
             <div className="flex items-center gap-2">
               <div className="relative h-10 w-36">
                 <Image
-                  src="/logo-topmodas.png"
+                  src="/logo-topmodas.svg"
                   alt="Top Modas"
                   fill
                   className="object-contain object-left brightness-125"
@@ -45,10 +44,13 @@ export function Footer() {
 
           {/* Coluna 2: Navegação & Departamentos */}
           <div className="space-y-4">
+            <h4 className="text-sm font-bold uppercase tracking-wider text-white">
+              Departamentos
+            </h4>
             <ul className="space-y-2.5 text-sm text-zinc-400">
               <li>
                 <Link
-                  href="/#collections"
+                  href="/colecoes?categoria=Feminino"
                   className="hover:text-rose-400 transition-colors"
                 >
                   Moda Feminina
@@ -56,7 +58,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/#collections"
+                  href="/colecoes?categoria=Masculino"
                   className="hover:text-rose-400 transition-colors"
                 >
                   Moda Masculina
@@ -64,7 +66,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/#collections"
+                  href="/colecoes?categoria=Infantil"
                   className="hover:text-rose-400 transition-colors"
                 >
                   Moda Infantil
@@ -72,7 +74,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/#collections"
+                  href="/colecoes?categoria=Acessórios"
                   className="hover:text-rose-400 transition-colors"
                 >
                   Bolsas & Acessórios
@@ -107,7 +109,7 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Coluna 4: Onde Estamos */}
+          {/* Coluna 4: Onde Estamos & Contatos */}
           <div className="space-y-4">
             <h4 className="text-sm font-bold uppercase tracking-wider text-white flex items-center gap-2">
               <MapPin className="h-4 w-4 text-rose-500" />
@@ -115,19 +117,36 @@ export function Footer() {
             </h4>
             <div className="space-y-3 text-sm text-zinc-400">
               <GoogleMapFrame height={160} />
-              <p className="flex items-center gap-2 text-sm uppercase text-white font-bold">
+              
+              <p className="flex items-center gap-2 text-sm uppercase text-white font-bold pt-1">
                 <Phone className="h-3.5 w-3.5 text-rose-500 shrink-0" />
-                <span>Contato </span>
+                <span>Atendimento WhatsApp</span>
               </p>
-              <div className="space-x-2 pt-1 flex flex-row">
-                <UserIcon size={20}/>
-                <p>Gardênia: </p>
-                <p><Link href={""}></Link></p>
+
+              <div className="flex items-center gap-2 text-xs">
+                <User className="h-4 w-4 text-rose-400 shrink-0" />
+                <span className="text-zinc-300 font-medium">Gardênia:</span>
+                <a
+                  href="https://wa.link/qwls2e"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-emerald-400 hover:text-emerald-300 hover:underline"
+                >
+                  Iniciar Conversa
+                </a>
               </div>
-              <div className="space-x-2 flex flex-row">
-                <UserIcon size={20}/>
-                <p>Paulo: </p>
-                <p><Link href={"https://wa.me/5585987314664"}>(85) 987314664</Link></p>
+
+              <div className="flex items-center gap-2 text-xs">
+                <User className="h-4 w-4 text-rose-400 shrink-0" />
+                <span className="text-zinc-300 font-medium">Paulo:</span>
+                <a
+                  href="https://wa.me/5585987314664"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-emerald-400 hover:text-emerald-300 hover:underline"
+                >
+                  (85) 98731-4664
+                </a>
               </div>
             </div>
           </div>

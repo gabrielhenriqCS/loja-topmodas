@@ -25,7 +25,7 @@ export function Header() {
           <Link href="/" className="flex items-center gap-2 group transition-opacity hover:opacity-90">
             <div className="relative h-11 w-36 sm:w-40">
               <Image
-                src="/logo-topmodas.png"
+                src="/logo-topmodas.svg"
                 alt="Logo da Loja Top Modas"
                 fill
                 priority
@@ -44,7 +44,7 @@ export function Header() {
               Início
             </Link>
             <Link
-              href="/#collections"
+              href="/colecoes"
               className="transition-colors hover:text-rose-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-500 rounded-md py-1"
             >
               Coleções
@@ -119,7 +119,7 @@ export function Header() {
                 Início
               </Link>
               <Link
-                href="/#collections"
+                href="/colecoes"
                 onClick={() => setIsOpen(false)}
                 className="py-2 border-b border-gray-100 hover:text-rose-600 transition-colors"
               >
