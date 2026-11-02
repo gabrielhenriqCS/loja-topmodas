@@ -156,8 +156,13 @@ export function Footer() {
         {/* Rodapé Inferior: Pagamentos & Copyright */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
           <p>
-            &copy; {new Date().getFullYear()} <strong className="text-zinc-300">Top Modas</strong>. Todos os direitos reservados.
-          </p>
+  &copy; {new Date().getFullYear()}{" "}
+  {/* Clicar no nome leva para a tela de login */}
+  <Link href="/admin/login" className="hover:text-zinc-100 transition-colors">
+    Top Modas
+  </Link>
+  . Todos os direitos reservados.
+</p>
 
           <div className="flex items-center gap-4 text-zinc-400">
             <span className="flex items-center gap-1.5">

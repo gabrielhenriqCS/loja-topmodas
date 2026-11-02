@@ -2,11 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { WhatsappLogo } from "@phosphor-icons/react";
-import { ArrowRight, ShoppingBag, Sparkles } from "lucide-react";
+import { ShoppingBag, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
-const WHATSAPP_URL = "https://wa.link/qwls2e";
 
 export function Hero() {
   return (
@@ -50,23 +47,7 @@ export function Hero() {
 
             {/* Ações / Botões com Altura e Ritmo Consistentes */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2">
-              <Button
-                asChild
-                size="lg"
-                className="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold shadow-md shadow-emerald-600/20 px-6 py-6 text-sm sm:text-base group"
-              >
-                <a
-                  href={WHATSAPP_URL}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex items-center justify-center gap-2.5"
-                >
-                  <WhatsappLogo size={22} weight="fill" />
-                  <span>Consulte novidades no WhatsApp</span>
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </a>
-              </Button>
-
+              
               <Button
                 asChild
                 variant="outline"

@@ -49,12 +49,6 @@ export function Header() {
             >
               Coleções
             </Link>
-            <Link
-              href="/contatos"
-              className="transition-colors hover:text-rose-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-500 rounded-md py-1"
-            >
-              Contatos
-            </Link>
           </nav>
 
           {/* Actions Desktop */}
@@ -77,22 +71,7 @@ export function Header() {
               </a>
             </Button>
 
-            <Button
-              asChild
-              size="sm"
-              className="bg-emerald-600 hover:bg-emerald-700 text-white shadow-xs font-medium"
-            >
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Falar no WhatsApp"
-                className="flex items-center gap-1.5"
-              >
-                <WhatsappLogo size={18} weight="fill" />
-                <span>WhatsApp</span>
-              </a>
-            </Button>
+            
           </div>
 
           {/* Hamburger Mobile Button */}
