@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { Search } from "lucide-react";
+import { Search, X, Sparkles, SlidersHorizontal } from "lucide-react";
 import { products, productCategories } from "@/data/products";
 import { ProductCard } from "./product-card";
 
@@ -16,7 +16,9 @@ export function Collections() {
       const matchesCategory =
         selectedCategory === "Todas" || product.category === selectedCategory;
       const searchableText =
-        `${product.name} ${product.description} ${product.category}`.toLocaleLowerCase("pt-BR");
+        `${product.name} ${product.description} ${product.category}`.toLocaleLowerCase(
+          "pt-BR"
+        );
       const matchesSearch = searchableText.includes(normalizedSearch);
 
       return matchesCategory && matchesSearch;
@@ -24,25 +26,27 @@ export function Collections() {
   }, [searchTerm, selectedCategory]);
 
   return (
-    <section id="collections" className="bg-gray-50 py-16 sm:py-20">
-      <div className="container mx-auto px-4">
-        <div className="mx-auto mb-10 max-w-2xl text-center sm:mb-12">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-pink-700">
-            Encontre seu estilo
-          </p>
-          <h2 className="mb-4 text-3xl font-bold text-gray-900 sm:text-4xl">
-            Catálogo Top Modas
+    <section id="collections" className="bg-gray-50/60 py-16 sm:py-24">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Cabeçalho da Seção com Equilíbrio de Medida e Espaçamento */}
+        <div className="mx-auto mb-10 max-w-2xl text-center sm:mb-14">
+          <div className="inline-flex items-center gap-1.5 rounded-full bg-rose-100/80 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-rose-700">
+            <Sparkles className="h-3 w-3" />
+            <span>Catálogo Exclusivo</span>
+          </div>
+          <h2 className="mt-3 text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">
+            Explore Nossas Coleções
           </h2>
-          <p className="text-base leading-7 text-gray-600 sm:text-lg">
-            Explore as opções disponíveis e fale com a gente para consultar preços,
-            tamanhos e disponibilidade.
+          <p className="mt-3 text-base text-gray-600 sm:text-lg leading-relaxed max-w-xl mx-auto">
+            Encontre o look ideal para você e sua família. Clique na peça para
+            consultar tamanhos e solicitar no WhatsApp.
           </p>
         </div>
 
-        <div className="mx-auto mb-8 max-w-3xl space-y-4">
-          <label htmlFor="product-search" className="sr-only">
-            Buscar produtos
-          </label>
+        {/* Barra de Busca e Filtros com Proporções Refinadas */}
+        <div className="mx-auto mb-10 max-w-2xl space-y-4">
+          {/* Campo de Busca */}
           <div className="relative">
             <Search
               aria-hidden="true"
@@ -50,28 +54,41 @@ export function Collections() {
             />
             <input
               id="product-search"
-              type="search"
+              type="text"
               value={searchTerm}
-              onChange={(event) => setSearchTerm(event.target.value)}
-              placeholder="Buscar por produto ou categoria..."
-              className="w-full rounded-xl border border-gray-300 bg-white py-3 pl-12 pr-4 text-gray-900 outline-none transition focus:border-pink-500 focus:ring-2 focus:ring-pink-200"
+              onChange={(e) => setSearchTerm(e.target.value)}
+              placeholder="Buscar por vestido, camisa, conjunto, bolsa..."
+              className="w-full rounded-2xl border border-gray-200 bg-white py-3.5 pl-12 pr-10 text-sm sm:text-base text-gray-900 shadow-xs outline-none transition placeholder:text-gray-400 focus:border-rose-500 focus:ring-4 focus:ring-rose-500/10"
             />
+            {searchTerm && (
+              <button
+                type="button"
+                onClick={() => setSearchTerm("")}
+                className="absolute right-3.5 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 p-1"
+                aria-label="Limpar busca"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            )}
           </div>
 
-          <div className="flex flex-wrap justify-center gap-2" aria-label="Filtrar por categoria">
+          {/* Abas de Categorias */}
+          <div
+            className="flex flex-wrap items-center justify-center gap-2 pt-1"
+            aria-label="Filtrar por categoria"
+          >
             {productCategories.map((category) => {
               const isSelected = selectedCategory === category;
-
               return (
                 <button
                   key={category}
                   type="button"
                   aria-pressed={isSelected}
                   onClick={() => setSelectedCategory(category)}
-                  className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-500 focus-visible:ring-offset-2 ${
+                  className={`rounded-full px-5 py-2 text-xs sm:text-sm font-semibold transition-all duration-200 ${
                     isSelected
-                      ? "border-pink-600 bg-pink-600 text-white"
-                      : "border-gray-300 bg-white text-gray-700 hover:border-pink-400 hover:text-pink-700"
+                      ? "bg-rose-600 text-white shadow-md shadow-rose-600/20 scale-105"
+                      : "bg-white text-gray-700 border border-gray-200 hover:border-rose-300 hover:text-rose-600 hover:bg-rose-50/40"
                   }`}
                 >
                   {category}
@@ -81,10 +98,14 @@ export function Collections() {
           </div>
         </div>
 
-        <div className="mb-4 flex items-center justify-between gap-4">
-          <p className="text-sm text-gray-600" aria-live="polite">
-            {filteredProducts.length} {filteredProducts.length === 1 ? "produto encontrado" : "produtos encontrados"}
+        {/* Resumo de Resultados */}
+        <div className="mb-6 flex items-center justify-between border-b border-gray-200 pb-3 text-xs sm:text-sm text-gray-500">
+          <p>
+            Exibindo{" "}
+            <span className="font-bold text-gray-900">{filteredProducts.length}</span>{" "}
+            {filteredProducts.length === 1 ? "produto" : "produtos"}
           </p>
+
           {(searchTerm || selectedCategory !== "Todas") && (
             <button
               type="button"
@@ -92,29 +113,46 @@ export function Collections() {
                 setSearchTerm("");
                 setSelectedCategory("Todas");
               }}
-              className="text-sm font-medium text-pink-700 underline underline-offset-4 hover:text-pink-900"
+              className="font-semibold text-rose-600 hover:text-rose-700 hover:underline"
             >
               Limpar filtros
             </button>
           )}
         </div>
 
+        {/* Grade de Produtos com Gaps Padronizados */}
         {filteredProducts.length > 0 ? (
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {filteredProducts.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
           </div>
         ) : (
-          <div className="rounded-2xl border border-dashed border-gray-300 bg-white px-6 py-12 text-center">
-            <h3 className="text-lg font-semibold text-gray-900">
+          /* Estado Vazio */
+          <div className="rounded-3xl border border-dashed border-gray-300 bg-white px-6 py-16 text-center">
+            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-rose-50 text-rose-600">
+              <SlidersHorizontal className="h-6 w-6" />
+            </div>
+            <h3 className="mt-4 text-lg font-bold text-gray-900">
               Nenhum produto encontrado
             </h3>
-            <p className="mt-2 text-sm text-gray-600">
-              Tente buscar por outro termo ou selecione uma categoria diferente.
+            <p className="mt-1 text-sm text-gray-500 max-w-sm mx-auto">
+              Não encontramos nenhum item correspondente à sua busca. Tente buscar
+              por outro termo ou selecione outra categoria.
             </p>
+            <button
+              type="button"
+              onClick={() => {
+                setSearchTerm("");
+                setSelectedCategory("Todas");
+              }}
+              className="mt-5 inline-flex items-center gap-2 rounded-xl bg-rose-600 px-5 py-2.5 text-xs font-bold text-white hover:bg-rose-700 transition"
+            >
+              Ver todos os produtos
+            </button>
           </div>
         )}
+
       </div>
     </section>
   );
