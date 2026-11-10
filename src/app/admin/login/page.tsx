@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/client";
@@ -9,7 +8,6 @@ import { Sparkles, Lock, Mail, ArrowRight, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function AdminLoginPage() {
-  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -22,18 +20,23 @@ export default function AdminLoginPage() {
     setLoading(true);
     setErrorMsg(null);
 
-    const { error } = await supabase.auth.signInWithPassword({
+    const { data, error } = await supabase.auth.signInWithPassword({
       email,
       password,
     });
 
     if (error) {
+      setErrorMsg(
+        error.message === "Invalid login credentials"
+          ? "E-mail ou senha incorretos."
+          : error.message
+      );
       setLoading(false);
       return;
     }
 
-    router.push("/dashboard");
-    router.refresh();
+    // Se o login deu certo, redireciona diretamente para o dashboard
+    window.location.href = "/dashboard";
   }
 
   return (

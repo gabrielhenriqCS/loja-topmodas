@@ -6,4 +6,3 @@ export async function POST() {
   await supabase.auth.signOut();
   redirect("/admin/login");
 }
-

@@ -78,6 +78,14 @@ export default async function DashboardPage() {
 
         <div className="flex items-center gap-2.5">
           <Link
+            href="/dashboard/produtos"
+            className="inline-flex items-center gap-1.5 text-xs font-bold text-white bg-rose-600 hover:bg-rose-700 px-3.5 py-2.5 rounded-xl shadow-xs transition"
+          >
+            <Package className="h-3.5 w-3.5" />
+            <span>Gerenciar Produtos</span>
+          </Link>
+
+          <Link
             href="/"
             target="_blank"
             className="inline-flex items-center gap-1.5 text-xs font-semibold text-gray-700 hover:text-rose-600 bg-white border border-gray-200 hover:border-rose-200 px-3.5 py-2.5 rounded-xl shadow-xs transition"

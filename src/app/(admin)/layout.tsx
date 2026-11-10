@@ -25,7 +25,11 @@ export default async function AdminLayout({
     .eq("id", user.id)
     .single();
 
-  if (profile?.role !== "admin") {
+  // Permitir acesso se a role for 'admin' OU se for o e-mail do dono da loja (configurado no .env)
+  const ownerEmail = process.env.EMAIL?.replace(/['"]/g, "").trim().toLowerCase();
+  const isOwnerEmail = Boolean(user.email && ownerEmail && user.email.toLowerCase() === ownerEmail);
+
+  if (profile?.role !== "admin" && !isOwnerEmail) {
     redirect("/");
   }
 
